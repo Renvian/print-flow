@@ -67,7 +67,49 @@ All API keys for Supabase and Gemini are stored in a single file called `config.
 
 ---
 
-## 7. How to Run Locally
+## 7.Database Schema (Supabase)
+
+### 1. `Entries`
+| Column | Type | Key |
+| :--- | :--- | :--- |
+| `user_id` | `uuid` | PK |
+| `date` | `timestamp` | |
+| `content` | `text` | |
+| `mood` | `text` | |
+
+### 2. `orders`
+| Column | Type | Key |
+| :--- | :--- | :--- |
+| `id` | `int8` | PK |
+| `user_id` | `uuid` | |
+| `student_email` | `text` | |
+| `deadline_date` | `date` | |
+| `deadline_time` | `time` | |
+| `copies` | `int4` | |
+| `total_cost` | `numeric` | |
+| `status` | `text` | |
+| `created_at` | `timestamptz` | |
+
+### 3. `order_items`
+| Column | Type | Key |
+| :--- | :--- | :--- |
+| `id` | `int8` | PK |
+| `order_id` | `int8` | FK (orders.id) |
+| `file_name` | `text` | |
+| `file_url` | `text` | |
+| `total_pages` | `int4` | |
+| `color_pages` | `text` | |
+| `binding` | `bool` | |
+| `binding_cost` | `numeric` | |
+
+---
+
+**Relationships:**
+* `order_items.order_id` references `orders.id` (One-to-Many).
+
+---
+
+## 8. How to Run Locally
 
 1. Download or clone the repository.
 2. Copy the example key file to `config.js` and fill in your API keys, note that the model in use is gemini-2.0-flash.
@@ -76,7 +118,7 @@ All API keys for Supabase and Gemini are stored in a single file called `config.
 
 ---
 
-## 8. Notes
+## 9. Notes
 
 - Google Gemini 2.0 Flash is the AI-powered model used to prioritize print orders intelligently.
 - `config.js` is the single source of API keys and should be kept private if real credentials are used.
