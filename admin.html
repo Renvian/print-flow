@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <div class="container">
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+            <h2>👮 Admin Panel</h2>
+            <button onclick="handleLogout()" class="btn-danger">Logout</button>
+        </div>
+        
+        <div style="background:#eef; padding:15px; border-radius:8px; margin-bottom:20px;">
+            <button onclick="sortGemini()" style="background:#6f42c1; width:100%;">✨ Sort Priority with AI</button>
+        </div>
+        <button onclick="loadOrders()" class="btn-secondary">Refresh List</button>
+
+        <div id="adminOrders" style="margin-top:20px;">Loading...</div>
+    </div>
+    
+    <script src="config.js"></script>
+    <script src="auth.js"></script>
+    <script src="admin.js"></script>
+
+    <script>
+        // Simple Admin Protection
+        checkSession().then(session => {
+            if(session && session.user.email !== 'admin@college.com') {
+                alert("Access Denied");
+                window.location.href = 'student.html';
+            }
+        });
+    </script>
+</body>
+</html>

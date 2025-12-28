@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <div class="container">
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+            <h2>👨‍🎓 Student Dashboard</h2>
+            <button onclick="handleLogout()" class="btn-danger">Logout</button>
+        </div>
+        <p id="userEmail" style="color:#666;"></p>
+
+        <div id="uploadSection">
+            <h3>1. Upload Documents</h3>
+            <input type="file" id="fileInput" multiple accept=".pdf,.doc,.docx">
+            <div id="fileList"></div>
+            
+            <h3>2. Order Settings</h3>
+            <label>Copies per document:</label>
+            <input type="number" id="copies" value="1" min="1">
+            
+            <label>Required By:</label>
+            <div style="display:flex; gap:10px;">
+                <input type="date" id="deadlineDate">
+                <input type="time" id="deadlineTime">
+            </div>
+
+            <button onclick="calculateTotal()" style="margin-top:20px;">Calculate Cost</button>
+        </div>
+
+        <div id="summarySection" class="hidden">
+            <h3>Order Summary</h3>
+            <div id="costBreakdown" style="background:#f9f9f9; padding:15px; border-radius:5px;"></div>
+            <h2 id="totalPrice" style="text-align:right;">Total: ₹0</h2>
+            <button onclick="placeOrder()">Confirm & Place Order</button>
+            <button class="btn-secondary" onclick="location.reload()">Cancel</button>
+        </div>
+        
+        <hr>
+        <h3>Your Order History</h3>
+        <div id="orderHistory">Loading...</div>
+    </div>
+
+   <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+
+   <script src="config.js"></script>
+
+   <script src="auth.js"></script>
+   <script src="student.js"></script>
+</body>
+</html>

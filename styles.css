@@ -1,0 +1,15 @@
+body { font-family: 'Segoe UI', sans-serif; background-color: #f0f2f5; display: flex; justify-content: center; padding: 20px; min-height: 100vh; }
+.container { width: 100%; max-width: 800px; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+h1, h2, h3 { color: #333; margin-top: 0; }
+input, button, select { width: 100%; padding: 12px; margin: 8px 0; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box; font-size: 16px; }
+button { background-color: #007bff; color: white; border: none; font-weight: bold; cursor: pointer; transition: background 0.3s; }
+button:hover { background-color: #0056b3; }
+.btn-secondary { background-color: #6c757d; }
+.btn-danger { background-color: #dc3545; width: auto; padding: 8px 16px; }
+.file-card { background: #f8f9fa; padding: 15px; border: 1px solid #e9ecef; margin-bottom: 10px; border-radius: 8px; }
+.hidden { display: none; }
+.checkbox-group { margin: 10px 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.checkbox-item { background: #fff; border: 1px solid #ddd; padding: 5px 10px; border-radius: 4px; display: flex; align-items: center; gap: 5px; }
+.binding-row { display: flex; align-items: center; gap: 10px; font-weight: 600; color: #555; margin-top: 10px; }
+.binding-row input { width: 20px; height: 20px; margin: 0; }
+.auth-box { max-width: 400px; margin: auto; text-align: center; }
