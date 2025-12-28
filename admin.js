@@ -108,7 +108,7 @@ async function sortGemini() {
 
     } catch (err) {
         console.error(err);
-        alert("AI Sorting failed. See console.");
+        alert("Enter Gemini API key from Google Ai studio, using the model gemini-2.0-flash");
     } finally {
         btn.innerText = "✨ Sort Priority with Gemini AI";
         btn.disabled = false;
@@ -116,4 +116,5 @@ async function sortGemini() {
 }
 
 // Load on start
+
 loadOrders();
